@@ -14,5 +14,10 @@
         public Cor cor { get; protected set; }
         public int qtdMovimentos { get; protected set; }
         public Tabuleiro tab { get; protected set; }
+
+        public void incrementarQtdMovimentos()
+        {
+            qtdMovimentos++;
+        }
     }
 }

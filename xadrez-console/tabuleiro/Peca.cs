@@ -2,11 +2,11 @@
 {
     public class Peca
     {
-        public Peca(Posicao posicao, Cor cor, int qtdMovimentos, Tabuleiro tab)
+        public Peca(Tabuleiro tab, Cor cor)
         {
-            Posicao = posicao;
+            Posicao = null;
             this.cor = cor;
-            this.qtdMovimentos = qtdMovimentos;
+            this.qtdMovimentos = 0;
             this.tab = tab;
         }
 

@@ -20,6 +20,29 @@
             qtdMovimentos++;
         }
 
+        public bool existeMovimentosPossiveis()
+        {
+            bool[,] movimentos = movimentosPossiveis();
+
+            for (int i = 0; i < Tabuleiro.linhas; i++)
+            {
+                for (int j = 0; j < Tabuleiro.colunas; j++)
+                {
+                    if (movimentos[i,j])
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        public bool podeMoverPara(Posicao posicao)
+        {
+            return movimentosPossiveis()[posicao.linha,posicao.coluna];
+        }
+
         public abstract bool[,] movimentosPossiveis();
     }
 }

@@ -21,7 +21,8 @@ namespace xadrez
                 }
 
                 posicao = new Posicao(Posicao.linha - 2, Posicao.coluna);
-                if (Tabuleiro.posicaoValida(posicao) && livre(posicao) && qtdMovimentos == 0)
+                Posicao posicaoAux = new Posicao(Posicao.linha - 1, Posicao.coluna);
+                if (Tabuleiro.posicaoValida(posicaoAux) && livre(posicaoAux) && Tabuleiro.posicaoValida(posicao) && livre(posicao) && qtdMovimentos == 0)
                 {
                     tabuleiro[posicao.linha, posicao.coluna] = true;
                 }
@@ -47,7 +48,8 @@ namespace xadrez
                 }
 
                 posicao = new Posicao(Posicao.linha + 2, Posicao.coluna);
-                if (Tabuleiro.posicaoValida(posicao) && livre(posicao) && qtdMovimentos == 0)
+                Posicao posicaoAux = new Posicao(Posicao.linha + 1, Posicao.coluna);
+                if (Tabuleiro.posicaoValida(posicaoAux) && livre(posicaoAux) && Tabuleiro.posicaoValida(posicao) && livre(posicao) && qtdMovimentos == 0)
                 {
                     tabuleiro[posicao.linha, posicao.coluna] = true;
                 }
@@ -63,62 +65,6 @@ namespace xadrez
                 {
                     tabuleiro[posicao.linha, posicao.coluna] = true;
                 }
-            }
-
-            // Norte
-            posicao = new Posicao(Posicao.linha - 1, Posicao.coluna);
-            while (Tabuleiro.posicaoValida(posicao) && podeMover(posicao))
-            {
-                tabuleiro[posicao.linha, posicao.coluna] = true;
-
-                if (Tabuleiro.peca(posicao) != null && Tabuleiro.peca(posicao).Cor != Cor)
-                {
-                    break;
-                }
-
-                posicao.linha -= 1;
-            }
-
-            // Sul
-            posicao = new Posicao(Posicao.linha + 1, Posicao.coluna);
-            while (Tabuleiro.posicaoValida(posicao) && podeMover(posicao))
-            {
-                tabuleiro[posicao.linha, posicao.coluna] = true;
-
-                if (Tabuleiro.peca(posicao) != null && Tabuleiro.peca(posicao).Cor != Cor)
-                {
-                    break;
-                }
-
-                posicao.linha += 1;
-            }
-
-            // Leste
-            posicao = new Posicao(Posicao.linha, Posicao.coluna + 1);
-            while (Tabuleiro.posicaoValida(posicao) && podeMover(posicao))
-            {
-                tabuleiro[posicao.linha, posicao.coluna] = true;
-
-                if (Tabuleiro.peca(posicao) != null && Tabuleiro.peca(posicao).Cor != Cor)
-                {
-                    break;
-                }
-
-                posicao.coluna += 1;
-            }
-
-            // Oeste
-            posicao = new Posicao(Posicao.linha, Posicao.coluna - 1);
-            while (Tabuleiro.posicaoValida(posicao) && podeMover(posicao))
-            {
-                tabuleiro[posicao.linha, posicao.coluna] = true;
-
-                if (Tabuleiro.peca(posicao) != null && Tabuleiro.peca(posicao).Cor != Cor)
-                {
-                    break;
-                }
-
-                posicao.coluna -= 1;
             }
 
             return tabuleiro;
